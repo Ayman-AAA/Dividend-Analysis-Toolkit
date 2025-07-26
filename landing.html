@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividend Analysis Toolkit for Google Sheets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .content {
+            padding: 0;
+        }
+        
+        .quick-start {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        .quick-start h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .quick-start-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #11998e;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .main-content {
+            padding: 60px 40px;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+        
+        .functions-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .function-category {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .function-category h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .function-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+        
+        .function-name {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .function-description {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .function-examples {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .function-examples .example {
+            margin: 5px 0;
+        }
+        
+        .function-examples .result {
+            color: #2ecc71;
+        }
+        
+        .example-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        .example-table h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .support-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #2ecc71;
+        }
+        
+        .support-card.warning {
+            border-top-color: #f39c12;
+        }
+        
+        .support-card.error {
+            border-top-color: #e74c3c;
+        }
+        
+        .support-card h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .support-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .support-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .support-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .support-card.warning li::before {
+            content: '⚠';
+            color: #f39c12;
+        }
+        
+        .support-card.error li::before {
+            content: '✗';
+            color: #e74c3c;
+        }
+        
+        .limitations {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .limitations h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .troubleshooting {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .troubleshooting h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .issue {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .issue-title {
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 10px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #3498db;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+            }
+            
+            .quick-start {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>📊 Dividend Analysis Toolkit</h1>
+                <p class="subtitle">A comprehensive set of custom functions for analyzing dividend-paying stocks directly in Google Sheets. Get real-time dividend data, calculate yields, predict future payments, and analyze dividend growth trends.</p>
+            </div>
+        </header>
+
+        <section class="quick-start">
+            <h2><span class="emoji">🚀</span> Quick Start</h2>
+            <div class="quick-start-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install</h3>
+                    <p>Install the add-on from Google Workspace Marketplace</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Open</h3>
+                    <p>Open any Google Sheet in your browser</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Use</h3>
+                    <p>Start using functions like <code>=latestDividend("AAPL")</code> in any cell</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Analyze</h3>
+                    <p>All functions automatically detect dividend frequency and patterns</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <span class="emoji">📊</span>
+                    <h2>Available Functions</h2>
+                </div>
+                
+                <div class="functions-grid">
+                    <div class="function-category">
+                        <h3>Basic Dividend Information</h3>
+                        
+                        <div class="function-item">
+                            <div class="function-name">latestDividend(symbol)</div>
+                            <div class="function-description">Returns the most recent dividend payment amount.</div>
+                            <div class="function-examples">
+                                <div class="example">=latestDividend("AAPL") <span class="result">→ 0.25</span></div>
+                                <div class="example">=latestDividend("JNJ") <span class="result">→ 1.19</span></div>
+                                <div class="example">=latestDividend("O") <span class="result">→ 0.26</span> (monthly REIT)</div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">lastDividendDate(symbol)</div>
+                            <div class="function-description">Returns the date of the most recent dividend payment.</div>
+                            <div class="function-examples">
+                                <div class="example">=lastDividendDate("AAPL") <span class="result">→ 2024-11-07</span></div>
+                                <div class="example">=lastDividendDate("KO") <span class="result">→ 2024-10-01</span></div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">getDividendFrequency(symbol)</div>
+                            <div class="function-description">Determines how often dividends are paid.</div>
+                            <div class="function-examples">
+                                <div class="example">=getDividendFrequency("AAPL") <span class="result">→ "Quarterly"</span></div>
+                                <div class="example">=getDividendFrequency("O") <span class="result">→ "Monthly"</span></div>
+                                <div class="example">=getDividendFrequency("BAC") <span class="result">→ "Quarterly"</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-category">
+                        <h3>Dividend Analysis Functions</h3>
+                        
+                        <div class="function-item">
+                            <div class="function-name">ytdDividend(symbol)</div>
+                            <div class="function-description">Total dividends paid in the current year.</div>
+                            <div class="function-examples">
+                                <div class="example">=ytdDividend("JNJ") <span class="result">→ 4.76</span></div>
+                                <div class="example">=ytdDividend("MSFT") <span class="result">→ 3.00</span></div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">trailingAnnualDividend(symbol)</div>
+                            <div class="function-description">Total dividends paid in the last 12 months (most accurate for yield calculations).</div>
+                            <div class="function-examples">
+                                <div class="example">=trailingAnnualDividend("KO") <span class="result">→ 1.84</span></div>
+                                <div class="example">=trailingAnnualDividend("PEP") <span class="result">→ 4.60</span></div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">forwardAnnualDividend(symbol)</div>
+                            <div class="function-description">Projected annual dividend based on latest payment and frequency.</div>
+                            <div class="function-examples">
+                                <div class="example">=forwardAnnualDividend("AAPL") <span class="result">→ 1.00</span> (0.25 × 4 quarters)</div>
+                                <div class="example">=forwardAnnualDividend("O") <span class="result">→ 3.12</span> (0.26 × 12 months)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-category">
+                        <h3>Yield Calculations</h3>
+                        
+                        <div class="function-item">
+                            <div class="function-name">latestDividendYield(symbol)</div>
+                            <div class="function-description">Dividend yield based on most recent payment and current stock price.</div>
+                            <div class="function-examples">
+                                <div class="example">=latestDividendYield("T") <span class="result">→ 0.0654</span> (6.54%)</div>
+                                <div class="example">=latestDividendYield("VZ") <span class="result">→ 0.0612</span> (6.12%)</div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">trailingDividendYield(symbol)</div>
+                            <div class="function-description">More accurate yield based on actual trailing 12-month dividends.</div>
+                            <div class="function-examples">
+                                <div class="example">=trailingDividendYield("JNJ") <span class="result">→ 0.0289</span> (2.89%)</div>
+                                <div class="example">=trailingDividendYield("PG") <span class="result">→ 0.0241</span> (2.41%)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="function-category">
+                        <h3>Predictive Functions</h3>
+                        
+                        <div class="function-item">
+                            <div class="function-name">nextEstimatedDividendDate(symbol)</div>
+                            <div class="function-description">Predicts when the next dividend payment will occur.</div>
+                            <div class="function-examples">
+                                <div class="example">=nextEstimatedDividendDate("AAPL") <span class="result">→ 2025-02-13</span></div>
+                                <div class="example">=nextEstimatedDividendDate("O") <span class="result">→ 2025-01-15</span></div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">estimatedNextDividend(symbol)</div>
+                            <div class="function-description">Predicts the amount of the next dividend payment based on growth trends.</div>
+                            <div class="function-examples">
+                                <div class="example">=estimatedNextDividend("MSFT") <span class="result">→ 0.83</span></div>
+                                <div class="example">=estimatedNextDividend("JNJ") <span class="result">→ 1.22</span></div>
+                            </div>
+                        </div>
+
+                        <div class="function-item">
+                            <div class="function-name">dividendGrowthTrend(symbol)</div>
+                            <div class="function-description">Average dividend growth rate (as decimal: 0.05 = 5% growth).</div>
+                            <div class="function-examples">
+                                <div class="example">=dividendGrowthTrend("AAPL") <span class="result">→ 0.0450</span> (4.5% average growth)</div>
+                                <div class="example">=dividendGrowthTrend("KO") <span class="result">→ 0.0320</span> (3.2% average growth)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <span class="emoji">📈</span>
+                    <h2>Example Analysis Spreadsheet</h2>
+                </div>
+                
+                <div class="example-table">
+                    <h3>Create a comprehensive dividend analysis with these column headers:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Latest Div</th>
+                                <th>Frequency</th>
+                                <th>YTD Total</th>
+                                <th>Trailing Yield</th>
+                                <th>Next Date</th>
+                                <th>Est. Next</th>
+                                <th>Growth Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>=latestDividend(A2)</td>
+                                <td>=getDividendFrequency(A2)</td>
+                                <td>=ytdDividend(A2)</td>
+                                <td>=trailingDividendYield(A2)</td>
+                                <td>=nextEstimatedDividendDate(A2)</td>
+                                <td>=estimatedNextDividend(A2)</td>
+                                <td>=dividendGrowthTrend(A2)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <span class="emoji">🏢</span>
+                    <h2>Supported Stock Symbols</h2>
+                </div>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3><span class="emoji">✅</span> Fully Supported</h3>
+                        <ul>
+                            <li>US Stocks: NYSE, NASDAQ (AAPL, MSFT, JNJ, KO, PG, etc.)</li>
+                            <li>REITs: Most US REITs including monthly payers (O, STAG, WPC)</li>
+                            <li>ETFs: Dividend-focused ETFs (VYM, SCHD, VIG, etc.)</li>
+                            <li>Utilities: Regular dividend payers (T, VZ, SO, D)</li>
+                            <li>Banks: Major banks with regular dividends (JPM, BAC, WFC)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card warning">
+                        <h3><span class="emoji">⚠️</span> Limited Support</h3>
+                        <ul>
+                            <li>International stocks: May work with major ADRs (UL, NVS, TM)</li>
+                            <li>Irregular payers: Functions work but predictions less reliable</li>
+                            <li>New IPOs: Need dividend history for full functionality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card error">
+                        <h3><span class="emoji">❌</span> Not Supported</h3>
+                        <ul>
+                            <li>Non-dividend paying stocks (will return 0 or null)</li>
+                            <li>Private companies or unlisted securities</li>
+                            <li>Cryptocurrency</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <span class="emoji">⚠️</span>
+                    <h2>Important Limitations</h2>
+                </div>
+                
+                <div class="limitations">
+                    <h4>Data Source</h4>
+                    <ul>
+                        <li><strong>Source:</strong> Yahoo Finance API (free but not guaranteed)</li>
+                        <li><strong>Delay:</strong> Data may be 15-20 minutes delayed</li>
+                        <li><strong>Accuracy:</strong> Generally accurate but not suitable for high-frequency trading</li>
+                        <li><strong>Coverage:</strong> Primarily US markets with some international coverage</li>
+                    </ul>
+                </div>
+                
+                <div class="limitations">
+                    <h4>Function Limitations</h4>
+                    <ul>
+                        <li><strong>Historical data:</strong> Limited to ~2 years of dividend history</li>
+                        <li><strong>Ex-dividend dates:</strong> Estimated (±1-2 days accuracy)</li>
+                        <li><strong>Predictions:</strong> Based on historical patterns, not forward guidance</li>
+                        <li><strong>Special dividends:</strong> May be included in calculations</li>
+                        <li><strong>Stock splits:</strong> May affect historical calculations</li>
+                    </ul>
+                </div>
+                
+                <div class="limitations">
+                    <h4>Rate Limits & Performance</h4>
+                    <ul>
+                        <li><strong>Caching:</strong> Functions cache data for 5 minutes to 24 hours</li>
+                        <li><strong>API limits:</strong> Shared rate limits across all users</li>
+                        <li><strong>Performance:</strong> First call may be slower, subsequent calls cached</li>
+                        <li><strong>Refresh:</strong> Data refreshes automatically based on cache expiration</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="troubleshooting">
+                <h3><span class="emoji">🔧</span> Troubleshooting</h3>
+                
+                <div class="issue">
+                    <div class="issue-title">"Error: Yahoo API returned no 'chart' field"</div>
+                    <ul>
+                        <li>Stock symbol may be incorrect or delisted</li>
+                        <li>Try alternative ticker symbols (e.g., BRK.A vs BRK-A)</li>
+                    </ul>
+                </div>
+                
+                <div class="issue">
+                    <div class="issue-title">Functions return 0 or empty</div>
+                    <ul>
+                        <li>Stock may not pay dividends</li>
+                        <li>Verify correct symbol format</li>
+                        <li>Some stocks have limited historical data</li>
+                    </ul>
+                </div>
+                
+                <div class="issue">
+                    <div class="issue-title">Slow performance</div>
+                    <ul>
+                        <li>First call fetches fresh data (may take 3-5 seconds)</li>
+                        <li>Subsequent calls use cached data (instant)</li>
+                        <li>Avoid calling functions too frequently</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><span class="emoji">🆘</span> Support & Contact</h3>
+                    <p>Email: <a href="mailto:aabukhater@gmail.com">aabukhater@gmail.com</a></p>
+                    <p>GitHub: <a href="https://github.com/Ayman-AAA/Dividend-Analysis-Toolkit">Dividend Analysis Toolkit</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><span class="emoji">📄</span> Legal</h3>
+                    <p>This add-on is provided "as-is" without warranties. Users are responsible for verifying data accuracy.</p>
+                    <p>Not affiliated with Yahoo Finance or any financial institutions.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3><span class="emoji">🔒</span> Privacy</h3>
+                    <p>This add-on only accesses your current spreadsheet and makes external API calls to fetch financial data.</p>
+                    <p>No personal data is stored or transmitted beyond what's necessary for functionality.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid #34495e;">
+                <p>Last updated: 7/25/2025 | Compatible with: Google Sheets | Data source: Yahoo Finance API</p>
+                <p style="margin-top: 10px; opacity: 0.8;">Version 1.0 - Initial Release</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
