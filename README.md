@@ -1,4 +1,4 @@
-# 📊 Dividend Analysis Toolkit for Google Sheets
+# 📊 Dividend Toolkit for Google Sheets
 
 > A comprehensive set of custom functions for analyzing dividend-paying stocks directly in Google Sheets. Get real-time dividend data, calculate yields, predict future payments, and analyze dividend growth trends.
 
