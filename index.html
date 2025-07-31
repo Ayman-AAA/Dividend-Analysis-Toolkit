@@ -142,7 +142,7 @@
             background: var(--gradient-primary);
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 120px;
         }
 
         .hero::before {
@@ -473,7 +473,7 @@
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
@@ -667,6 +667,13 @@
             padding-top: 2rem;
             text-align: center;
             color: var(--text-muted);
+        }
+        .footer-bottom-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.75rem;
+        padding-top: 0.25rem;
+        text-align: center;
+        color: var(--text-muted);
         }
 
         /* Animations */
@@ -1099,7 +1106,9 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Ayman Abukhater. All rights reserved. | Market data provided by Yahoo Finance</p>
-                <p>Dividend Toolkit is independently developed by Ayman Abukhater and is not affiliated with Google LLC, Yahoo Finance, or any financial institution. All dividend data is provided for informational purposes only and should not be considered as financial advice</p>
+                    <div class="footer-bottom-bottom">
+                    <p>Dividend Toolkit is independently developed by Ayman Abukhater and is not affiliated with Google LLC, Yahoo Finance, or any financial institution. All dividend data is provided for informational purposes only and should not be considered as financial advice</p>
+                    </div>    
             </div>
         </div>
     </footer>
