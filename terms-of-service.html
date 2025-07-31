@@ -1,121 +1,364 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Terms of Service - [Your Add-on Name]</title> <style> body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; } h1 { color: #333; border-bottom: 2px solid #34a853; padding-bottom: 10px; } h2 { color: #34a853; margin-top: 30px; } .effective-date { background: #f8f9fa; padding: 10px; border-left: 4px solid #34a853; margin: 20px 0; } .important-note { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 5px; margin: 20px 0; } .contact-info { background: #e8f5e8; padding: 15px; border-radius: 5px; margin-top: 30px; } ul { margin: 10px 0; } li { margin: 5px 0; } </style> </head> <body> <h1>Terms of Service</h1>
-<div class="effective-date">
-    <strong>Effective Date:</strong> 7/25/2025<br>
-    <strong>Add-on:</strong> Dividend Analysis Toolkit
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Dividend Toolkit</title>
+    <style>
+        body {
+            font-family: 'Google Sans', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #202124;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 400;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .effective-date {
+            background: #e8f0fe;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        h2 {
+            color: #1a73e8;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid #e8f0fe;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #5f6368;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin: 0 0 15px 0;
+            color: #3c4043;
+        }
+        
+        ul, ol {
+            margin: 0 0 15px 20px;
+            color: #3c4043;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .financial-disclaimer {
+            background: #fce8e6;
+            border: 1px solid #ea4335;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .financial-disclaimer h3 {
+            color: #d33b2c;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .important-notice {
+            background: #fef7e0;
+            border: 1px solid #fbbc04;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .important-notice h3 {
+            color: #ea8600;
+            margin-top: 0;
+        }
+        
+        .contact-info {
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .contact-info h3 {
+            color: #34a853;
+            margin-top: 0;
+        }
+        
+        .section {
+            margin: 25px 0;
+        }
+        
+        .close-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #ea4335;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .close-button:hover {
+            background: #d33b2c;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dadce0;
+            color: #5f6368;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="close-button" onclick="closeDialog()" title="Close">&times;</button>
+    
+    <div class="header">
+        <h1>Terms of Service</h1>
+        <p>Dividend Analysis Toolkit for Google Sheets</p>
+    </div>
 
-<h2>Agreement to Terms</h2>
+    <div class="effective-date">
+        <strong>Effective Date:</strong> July 30, 2025<br>
+        <strong>Version:</strong> 1.1<br>
+        <strong>Add-on:</strong> Dividend Analysis Toolkit
+    </div>
 
-<p>By installing, accessing, or using our Google Sheets add-on, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of these terms, you may not use our add-on.</p>
+    <div class="important-notice">
+        <h3>⚠️ Important Notice</h3>
+        <p>By installing, accessing, or using Dividend Analysis Toolkit, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not use our add-on.</p>
+    </div>
 
-<h2>Service Description</h2>
+    <div class="section">
+        <h2>1. Service Description</h2>
+        <p>Dividend Analysis Toolkit is a Google Sheets add-on that provides comprehensive dividend analysis and stock data integration tools. The service connects to Yahoo Finance APIs and other financial data sources to deliver dividend information and analysis directly into your spreadsheets. The service includes:</p>
+        <ul>
+            <li>Real-time and historical dividend data retrieval for publicly traded stocks</li>
+            <li>Historical dividend analysis including YTD and trailing annual dividend calculations</li>
+            <li>Dividend yield calculations (current, trailing, and forward-looking estimates)</li>
+            <li>Dividend frequency detection and payment schedule analysis</li>
+            <li>Dividend growth trend analysis and future payment estimations</li>
+            <li>Current stock price integration for yield calculations</li>
+            <li>Custom functions accessible through standard Google Sheets formulas</li>
+            <li>Financial analysis tools and interactive dashboards</li>
+        </ul>
+    </div>
 
-<p>Our Google Sheets add-on provides comprehensive dividend analysis and stock data integration tools within the Google Sheets environment. The service connects to Yahoo Finance APIs to deliver dividend information and analysis directly into your spreadsheets. The service includes:</p>
-<ul>
-    <li>Dividend data retrieval for any publicly traded stock symbol</li>
-    <li>Historical dividend analysis including YTD and trailing annual dividend calculations</li>
-    <li>Dividend yield calculations (current, trailing, and forward-looking estimates)</li>
-    <li>Dividend frequency detection and payment schedule analysis</li>
-    <li>Dividend growth trend analysis and future payment estimations</li>
-    <li>Current stock price integration for yield calculations</li>
-    <li>Custom functions accessible through standard Google Sheets formulas</li>
-    <li>Regular updates and improvements</li>
-</ul>
+    <div class="financial-disclaimer">
+        <h3>⚠️ Critical Financial Disclaimer</h3>
+        <p><strong>Not Investment Advice:</strong> Dividend Analysis Toolkit provides financial data and analysis tools for informational and educational purposes only. The information provided is not intended as investment advice, financial advice, trading advice, or any other form of professional advice.</p>
+        <p><strong>Risk Warning:</strong> All investments involve risk, including the potential loss of principal. Past performance does not guarantee future results. Dividend payments are not guaranteed and may be reduced or eliminated at any time by the issuing company.</p>
+        <p><strong>Professional Consultation Required:</strong> You should consult with a qualified financial advisor, investment professional, or tax advisor before making any investment decisions based on information obtained through this add-on.</p>
+    </div>
 
-<h2>User Obligations</h2>
+    <div class="section">
+        <h2>2. Data Accuracy and Limitations</h2>
+        <h3>2.1 Data Sources and Reliability</h3>
+        <p>The add-on retrieves financial data from third-party sources including Yahoo Finance. While we strive to provide accurate and up-to-date information, we cannot guarantee:</p>
+        <ul>
+            <li>The accuracy, completeness, or timeliness of financial data</li>
+            <li>Real-time data availability (delays may occur)</li>
+            <li>Continuous data availability from third-party providers</li>
+            <li>Error-free calculations or analysis results</li>
+        </ul>
+        
+        <h3>2.2 User Verification Responsibility</h3>
+        <p>You are responsible for independently verifying all financial data and analysis results before making any decisions. Always cross-reference information with official company reports and other reliable sources.</p>
+    </div>
 
-<h3>Acceptable Use</h3>
-<p>You agree to use our add-on responsibly and lawfully:</p>
-<ul>
-    <li>Use the add-on only for legitimate business or personal purposes</li>
-    <li>Comply with all applicable laws and regulations</li>
-    <li>Respect intellectual property rights</li>
-    <li>Not attempt to circumvent security measures or reverse engineer the add-on</li>
-    <li>Not use the add-on to process illegal or harmful content</li>
-</ul>
+    <div class="section">
+        <h2>3. User Obligations and Acceptable Use</h2>
+        <h3>3.1 Acceptable Use</h3>
+        <p>You agree to use our add-on responsibly and lawfully:</p>
+        <ul>
+            <li>Use the add-on only for legitimate business, educational, or personal purposes</li>
+            <li>Comply with all applicable laws and regulations</li>
+            <li>Respect intellectual property rights and data usage terms</li>
+            <li>Not attempt to circumvent security measures or reverse engineer the add-on</li>
+            <li>Not redistribute or resell data obtained through the add-on</li>
+            <li>Respect rate limits and usage guidelines to ensure service availability</li>
+        </ul>
 
-<h3>Data Responsibility</h3>
-<p>As the user, you are responsible for:</p>
-<ul>
-    <li>Ensuring you have the right to process any data you use with our add-on</li>
-    <li>Maintaining appropriate backups of your important data</li>
-    <li>Verifying the accuracy of results produced by our add-on</li>
-    <li>Complying with data protection laws that apply to your use case</li>
-</ul>
+        <h3>3.2 Data Responsibility</h3>
+        <p>As the user, you are responsible for:</p>
+        <ul>
+            <li>Ensuring you have the right to process any data you use with our add-on</li>
+            <li>Maintaining appropriate backups of your important spreadsheet data</li>
+            <li>Verifying the accuracy of results produced by our add-on</li>
+            <li>Complying with data protection laws that apply to your use case</li>
+            <li>Understanding the limitations and appropriate use of financial data</li>
+        </ul>
+    </div>
 
-<h2>Service Availability</h2>
+    <div class="section">
+        <h2>4. Privacy and Data Handling</h2>
+        <h3>4.1 Data Collection</h3>
+        <p>Dividend Analysis Toolkit may collect and process:</p>
+        <ul>
+            <li>Google account information necessary for add-on functionality</li>
+            <li>Spreadsheet data you choose to analyze (processed locally when possible)</li>
+            <li>Usage statistics and error logs for service improvement</li>
+            <li>Stock symbols and queries you submit for data retrieval</li>
+        </ul>
+        
+        <h3>4.2 Data Security and Retention</h3>
+        <p>We implement appropriate security measures to protect your data and limit data retention to what is necessary for service operation. However, no system is completely secure, and we cannot guarantee absolute security.</p>
+    </div>
 
-<p>We strive to provide reliable service, but cannot guarantee:</p>
-<ul>
-    <li>100% uptime or uninterrupted access</li>
-    <li>Compatibility with all future Google Sheets updates</li>
-    <li>Availability during maintenance periods</li>
-    <li>Performance in all possible usage scenarios</li>
-</ul>
+    <div class="section">
+        <h2>5. Service Availability and Performance</h2>
+        <p>We strive to provide reliable service, but cannot guarantee:</p>
+        <ul>
+            <li>100% uptime or uninterrupted access</li>
+            <li>Compatibility with all future Google Sheets updates</li>
+            <li>Availability during maintenance periods or third-party service outages</li>
+            <li>Consistent performance in all possible usage scenarios</li>
+            <li>Continuous availability of third-party data sources</li>
+        </ul>
+        <p>We reserve the right to modify, suspend, or discontinue the add-on at any time with reasonable notice when possible.</p>
+    </div>
 
-<div class="important-note">
-    <strong>Important:</strong> We recommend testing our add-on with non-critical data before using it for important projects, and always maintaining backups of your valuable spreadsheets.
-</div>
+    <div class="section">
+        <h2>6. Intellectual Property Rights</h2>
+        <h3>6.1 Our Rights</h3>
+        <p>The add-on, including its code, design, algorithms, and documentation, is our intellectual property. You receive a limited, non-exclusive, non-transferable license to use the add-on as intended.</p>
 
-<h2>Intellectual Property</h2>
+        <h3>6.2 Your Rights</h3>
+        <p>You retain full ownership of:</p>
+        <ul>
+            <li>Your original spreadsheet data and content</li>
+            <li>Results and outputs generated using our add-on</li>
+            <li>Any original analysis or work you create while using our add-on</li>
+        </ul>
 
-<h3>Our Rights</h3>
-<p>The add-on, including its code, design, and documentation, is our intellectual property. You receive a limited, non-transferable license to use the add-on as intended.</p>
+        <h3>6.3 Restrictions</h3>
+        <p>You may not copy, modify, distribute, reverse engineer, or create derivative works based on the add-on without explicit permission.</p>
+    </div>
 
-<h3>Your Rights</h3>
-<p>You retain full ownership of:</p>
-<ul>
-    <li>Your spreadsheet data and content</li>
-    <li>Results and outputs generated using our add-on</li>
-    <li>Any original work you create while using our add-on</li>
-</ul>
+    <div class="section">
+        <h2>7. Disclaimers and Limitations of Liability</h2>
+        <h3>7.1 Warranty Disclaimer</h3>
+        <p>Our add-on is provided "AS IS" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement.</p>
 
-<h2>Disclaimers and Limitations</h2>
+        <h3>7.2 Limitation of Liability</h3>
+        <p>To the maximum extent permitted by law, we shall not be liable for:</p>
+        <ul>
+            <li>Any direct, indirect, incidental, special, consequential, or punitive damages</li>
+            <li>Loss of profits, data, investments, or other financial losses</li>
+            <li>Damages resulting from your use or inability to use the add-on</li>
+            <li>Damages resulting from inaccurate data or analysis</li>
+            <li>Any damages exceeding the amount you paid for the add-on (if applicable)</li>
+        </ul>
+    </div>
 
-<h3>Warranty Disclaimer</h3>
-<p>Our add-on is provided "AS IS" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <div class="section">
+        <h2>8. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless the developers and operators of Dividend Analysis Toolkit from any claims, damages, losses, or expenses (including reasonable attorney fees) arising from your use of the add-on, violation of these terms, or any investment decisions made based on data from the add-on.</p>
+    </div>
 
-<h3>Limitation of Liability</h3>
-<p>To the maximum extent permitted by law, we shall not be liable for:</p>
-<ul>
-    <li>Any indirect, incidental, special, consequential, or punitive damages</li>
-    <li>Loss of profits, data, use, or other intangible losses</li>
-    <li>Damages resulting from your use or inability to use the add-on</li>
-    <li>Any damages exceeding the amount you paid for the add-on (if applicable)</li>
-</ul>
+    <div class="section">
+        <h2>9. Account Termination</h2>
+        <p><strong>Your Right to Terminate:</strong> You may stop using our add-on at any time by uninstalling it from your Google Sheets.</p>
+        <p><strong>Our Right to Terminate:</strong> We reserve the right to terminate or suspend access to our add-on for violations of these terms, illegal activity, abuse of service resources, or other reasonable cause with appropriate notice when possible.</p>
+    </div>
 
-<h2>Account Termination</h2>
+    <div class="section">
+        <h2>10. Updates and Changes</h2>
+        <h3>10.1 Service Updates</h3>
+        <p>We may update our add-on periodically to add features, fix bugs, improve performance, or comply with third-party API changes. Major changes will be communicated through the add-on interface or our support channels.</p>
 
-<p><strong>Your Right to Terminate:</strong> You may stop using our add-on at any time by uninstalling it from your Google Sheets.</p>
+        <h3>10.2 Terms Updates</h3>
+        <p>We may modify these terms from time to time. If we make material changes, we will provide reasonable notice and update the effective date. Your continued use after the effective date constitutes acceptance of the updated terms.</p>
+    </div>
 
-<p><strong>Our Right to Terminate:</strong> We reserve the right to terminate or suspend access to our add-on for violations of these terms, illegal activity, or other reasonable cause.</p>
+    <div class="section">
+        <h2>11. Legal Provisions</h2>
+        <p><strong>Governing Law:</strong> These terms are governed by the laws of Texas, United States, without regard to conflict of law principles.</p>
+        <p><strong>Jurisdiction:</strong> Any disputes shall be subject to the exclusive jurisdiction of the courts in Texas.</p>
+        <p><strong>Severability:</strong> If any provision of these terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+        <p><strong>Entire Agreement:</strong> These terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the use of our add-on.</p>
+    </div>
 
-<h2>Updates and Changes</h2>
+    <div class="contact-info">
+        <h3>📧 Contact Information</h3>
+        <p>For questions about these terms, technical support, or our add-on:</p>
+        <p><strong>Email/Support:</strong> aabukhater@gmail.com</p>
+        <p>We strive to respond to all inquiries within 48 hours during business days.</p>
+    </div>
 
-<h3>Service Updates</h3>
-<p>We may update our add-on periodically to add features, fix bugs, or improve performance. Major changes will be communicated through the add-on interface or our website.</p>
+    <div class="footer">
+        <p><strong>Last Updated:</strong> July 30, 2025 | <strong>Version:</strong> 1.1</p>
+        <p><em>This add-on is independently developed and is not affiliated with Google LLC or Yahoo Finance.</em></p>
+    </div>
 
-<h3>Terms Updates</h3>
-<p>We may modify these terms from time to time. If we make material changes, we will provide notice and update the effective date. Your continued use constitutes acceptance of the updated terms.</p>
-
-<h2>Legal Provisions</h2>
-
-<p><strong>Governing Law:</strong> These terms are governed by the laws of [Your State/Country] without regard to conflict of law principles.</p>
-
-<p><strong>Severability:</strong> If any provision of these terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
-
-<p><strong>Entire Agreement:</strong> These terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the use of our add-on.</p>
-
-<div class="contact-info">
-    <h2>Contact Information</h2>
-    <p>For questions about these terms or our add-on, please contact us:</p>
-    <p>
-        <strong>Email:</strong> aabukhater@gmail.com<br>
-        <strong>Support:</strong> aabukhater@gmail.com
-    </p>
-</div>
-
-<hr>
-<p><em>This add-on is independently developed and is not affiliated with Google LLC.</em></p>
-
-</body> </html>
+    <script>
+        function closeDialog() {
+            if (typeof google !== 'undefined' && google.script && google.script.host) {
+                google.script.host.close();
+            } else {
+                window.close();
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.querySelector('.close-button');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeDialog);
+            }
+        });
+    </script>
+</body>
+</html>
