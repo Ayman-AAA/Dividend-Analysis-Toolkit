@@ -15,6 +15,7 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -37,6 +38,8 @@
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-secondary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --coffee-color: #ff813f;
+            --coffee-gradient: linear-gradient(135deg, #ff813f, #ffb224);
         }
 
         * {
@@ -91,58 +94,105 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-.nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    height: 80px; /* Add this for consistent height */
-}
+        
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            height: 80px;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    flex-shrink: 0; /* Add this to prevent shrinking */
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-    margin: 0; /* Add this */
-    padding: 0; /* Add this */
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.nav-links li {
-    margin: 0; /* Add this */
-}
+        .nav-links li {
+            margin: 0;
+        }
 
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Add this to prevent wrapping */
-}
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
 
-.nav-cta {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-    white-space: nowrap; /* Add this */
-    flex-shrink: 0; /* Add this to prevent shrinking */
-}
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        /* Coffee Button Styles */
+        .coffee-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--coffee-gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .coffee-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 129, 63, 0.3);
+        }
+        
+        .coffee-btn i {
+            font-size: 1.1em;
+        }
+        
+        .coffee-btn-nav {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        .coffee-btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
 
         /* Hero Section */
         .hero {
@@ -601,6 +651,55 @@
             color: var(--text-secondary);
         }
 
+        /* Support Section */
+        .support-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fff8f4, #fff0e8);
+            text-align: center;
+        }
+        
+        .support-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .support-icon {
+            font-size: 50px;
+            color: var(--coffee-color);
+            margin-bottom: 20px;
+        }
+        
+        .support-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        .support-section p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .mobile-coffee-btn {
+            display: none;
+            background: var(--coffee-gradient);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            max-width: 280px;
+            margin: 20px auto 0;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 6rem 0;
@@ -671,6 +770,18 @@
             height: 32px;
             border-radius: 6px;
         }
+        
+        .coffee-link {
+            color: var(--coffee-color) !important;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .coffee-link:hover {
+            color: #ff9f6d !important;
+        }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -707,6 +818,14 @@
             .nav-links {
                 display: none;
             }
+            
+            .nav-actions {
+                gap: 0.5rem;
+            }
+            
+            .coffee-btn-nav {
+                display: none;
+            }
 
             .hero-buttons {
                 flex-direction: column;
@@ -735,6 +854,10 @@
             .function-card {
                 padding: 1.5rem;
             }
+            
+            .mobile-coffee-btn {
+                display: flex;
+            }
         }
 
         @media (max-width: 480px) {
@@ -748,6 +871,14 @@
 
             .stat-card {
                 padding: 1rem;
+            }
+            
+            .support-section h2 {
+                font-size: 28px;
+            }
+            
+            .support-section p {
+                font-size: 16px;
             }
         }
 
@@ -782,9 +913,16 @@
                 <li><a href="#how-it-works">How it Works</a></li>
                 <li><a href="#testimonials">Reviews</a></li>
             </ul>
-            <a href="https://workspace.google.com/marketplace" class="nav-cta" target="_blank">
-                Get Started Free
-            </a>
+            <div class="nav-actions">
+                <!-- Coffee Button in Navigation (Strategic Location 1) -->
+                <a href="https://buymeacoffee.com/aabukhater" target="_blank" class="coffee-btn coffee-btn-nav">
+                    <i class="fas fa-mug-hot"></i>
+                    Buy me coffee
+                </a>
+                <a href="https://workspace.google.com/marketplace" class="nav-cta" target="_blank">
+                    Get Started Free
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -1052,6 +1190,30 @@
             </div>
         </div>
     </section>
+    
+    <!-- Support Section (Strategic Location 2) -->
+    <section class="support-section" id="support">
+        <div class="container">
+            <div class="support-container">
+                <div class="support-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <h2>Enjoying Our Free Tool?</h2>
+                <p>If Dividend Toolkit has made your investment analysis easier, consider supporting its development. Your contribution helps us maintain and improve this free tool, add new features, and provide exceptional support to all users.</p>
+                <p>Buying a coffee is a simple way to say thanks and ensure we can keep delivering value to you and thousands of other investors.</p>
+                <a href="https://buymeacoffee.com/yourusername" target="_blank" class="coffee-btn coffee-btn-large">
+                    <i class="fas fa-mug-hot"></i>
+                    Support Our Development
+                </a>
+                
+                <!-- Mobile Coffee Button (hidden on desktop) -->
+                <a href="https://buymeacoffee.com/aabukhater" target="_blank" class="mobile-coffee-btn">
+                    <i class="fas fa-mug-hot"></i>
+                    Buy me coffee
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -1101,6 +1263,11 @@
                     <p><a href="../Dividend-Analysis-Toolkit/privacy-policy.html">Privacy Policy</a></p>
                     <p><a href="../Dividend-Analysis-Toolkit/terms-of-service.html">Terms of Service</a></p>
                     <p><a href="#testimonials">User Reviews</a></p>
+                    <!-- Coffee Link in Footer (Strategic Location 3) -->
+                    <p><a href="https://buymeacoffee.com/aabukhater" target="_blank" class="coffee-link">
+                        <i class="fas fa-mug-hot"></i>
+                        Buy me a coffee
+                    </a></p>
                 </div>
             </div>
             
