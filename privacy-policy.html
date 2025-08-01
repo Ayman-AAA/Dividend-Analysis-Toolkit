@@ -33,6 +33,8 @@
             --gradient-secondary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
             --gradient-success: linear-gradient(135deg, #34a853 0%, #137333 100%);
+            --coffee-color: #ff813f;
+            --coffee-gradient: linear-gradient(135deg, #ff813f, #ffb224);
         }
 
         * {
@@ -94,58 +96,62 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-.nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    height: 80px; /* Add this for consistent height */
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    flex-shrink: 0; /* Add this to prevent shrinking */
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-    margin: 0; /* Add this */
-    padding: 0; /* Add this */
-}
-
-.nav-links li {
-    margin: 0; /* Add this */
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Add this to prevent wrapping */
-}
-
-.nav-cta {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
-    white-space: nowrap; /* Add this */
-    flex-shrink: 0; /* Add this to prevent shrinking */
-}
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            height: 80px; /* Add this for consistent height */
+        }
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            flex-shrink: 0; /* Add this to prevent shrinking */
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0; /* Add this */
+            padding: 0; /* Add this */
+        }
+        
+        .nav-links li {
+            margin: 0; /* Add this */
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap; /* Add this to prevent wrapping */
+        }
+        
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap; /* Add this */
+            flex-shrink: 0; /* Add this to prevent shrinking */
+        }
         /* Header */
         .header {
             background: var(--gradient-primary);
@@ -548,7 +554,93 @@
         .contact-details p:last-child {
             margin-bottom: 0;
         }
-
+        /* Coffee Button Styles */
+        .coffee-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--coffee-gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .coffee-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 129, 63, 0.3);
+        }
+        
+        .coffee-btn i {
+            font-size: 1.1em;
+        }
+        
+        .coffee-btn-nav {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        .coffee-btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        /* Support Section */
+        .support-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fff8f4, #fff0e8);
+            text-align: center;
+        }
+        
+        .support-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .support-icon {
+            font-size: 50px;
+            color: var(--coffee-color);
+            margin-bottom: 20px;
+        }
+        
+        .support-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        
+        .support-section p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .mobile-coffee-btn {
+            display: none;
+            background: var(--coffee-gradient);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            text-align: center;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            max-width: 280px;
+            margin: 20px auto 0;
+        }
         /* Footer */
         .footer {
             background: var(--bg-dark);
@@ -613,7 +705,17 @@
             text-align: center;
             color: var(--text-muted);
         }
-
+        .coffee-link {
+            color: var(--coffee-color) !important;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .coffee-link:hover {
+            color: #ff9f6d !important;
+        }
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -666,6 +768,17 @@
             .nav-links {
                 display: none;
             }
+            .nav-actions {
+                gap: 0.5rem;
+            }
+    
+            .coffee-btn-nav {
+                display: none;
+            }
+    
+            .mobile-coffee-btn {
+                display: flex;
+            }
 
             .container {
                 padding: 0 16px;
@@ -691,6 +804,17 @@
             .contact-info {
                 padding: 2rem 1.5rem;
             }
+        }
+    @media (max-width: 480px) {
+    /* ... existing mobile styles ... */
+    
+    .support-section h2 {
+        font-size: 28px;
+    }
+    
+    .support-section p {
+        font-size: 16px;
+    }
         }
     </style>
 </head>
