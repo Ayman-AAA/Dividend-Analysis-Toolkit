@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Dividend Toolkit</title>
-    <meta name="description" content="Terms of Service for Dividend Toolkit - Legal terms and conditions for using our Google Sheets add-on">
+    <meta name="description" content="Terms of Service for Dividend Toolkit - Professional dividend analysis for Google Sheets">
+    <meta name="keywords" content="terms of service, dividend toolkit, Google Sheets addon, legal">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Terms of Service - Dividend Toolkit">
+    <meta property="og:description" content="Terms of Service for Dividend Toolkit - Professional dividend analysis for Google Sheets">
+    <meta property="og:type" content="website">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -16,8 +23,6 @@
             --secondary-color: #7c3aed;
             --accent-color: #06b6d4;
             --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --error-color: #ef4444;
             --text-primary: #0f172a;
             --text-secondary: #64748b;
             --text-muted: #94a3b8;
@@ -32,9 +37,8 @@
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-secondary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --gradient-success: linear-gradient(135deg, #34a853 0%, #137333 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            --gradient-error: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --coffee-color: #ff813f;
+            --coffee-gradient: linear-gradient(135deg, #ff813f, #ffb224);
         }
 
         * {
@@ -45,10 +49,10 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--text-primary);
-            background: var(--bg-primary);
             overflow-x: hidden;
+            background: var(--bg-primary);
         }
 
         .container {
@@ -75,27 +79,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
         .nav-content {
             display: flex;
             align-items: center;
@@ -113,6 +96,12 @@
             color: var(--text-primary);
             text-decoration: none;
             flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -136,6 +125,16 @@
             white-space: nowrap;
         }
 
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
         .nav-cta {
             background: var(--gradient-primary);
             color: white;
@@ -149,80 +148,21 @@
             flex-shrink: 0;
         }
 
-        /* Close button */
-        .close-button {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--error-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1001;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-        }
-
-        .close-button:hover {
-            background: #dc2626;
-            transform: scale(1.1);
+        .nav-cta:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
 
-        /* Header */
-        .header {
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 60px;
             background: var(--gradient-primary);
             color: white;
-            padding: 8rem 0 4rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1"/><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.3)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.4)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.2)"/><circle cx="90" cy="90" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.5)"/></svg>');
-            animation: float 30s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-20px) translateX(10px); }
-            50% { transform: translateY(-10px) translateX(-5px); }
-            75% { transform: translateY(-30px) translateX(-10px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header h1 {
-            font-size: clamp(2rem, 4vw, 2.5rem);
+        .page-title {
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
@@ -231,383 +171,160 @@
             background-clip: text;
         }
 
-        .header-subtitle {
+        .page-subtitle {
             font-size: 1.125rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             margin-bottom: 2rem;
-            font-weight: 400;
+            opacity: 0.8;
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-            background: var(--bg-secondary);
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
         }
 
-        .content-wrapper {
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .terms-content {
             background: white;
-            border-radius: 24px;
             padding: 3rem;
+            border-radius: 20px;
             box-shadow: var(--shadow-lg);
-            margin: 2rem 0;
             border: 1px solid var(--border-color);
         }
 
-        .effective-date {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            border-left: 4px solid var(--primary-color);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .effective-date::before {
-            content: '📅';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            opacity: 0.3;
-        }
-
-        .effective-date:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .effective-date strong {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .privacy-commitment {
-            background: var(--gradient-success);
-            color: white;
-            padding: 3rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            transition: all 0.3s ease;
-        }
-
-        .privacy-commitment:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 35px -5px rgb(0 0 0 / 0.15), 0 10px 15px -8px rgb(0 0 0 / 0.1);
-        }
-
-        .privacy-commitment::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: scale(2) translate(50%, -50%);
-        }
-
-        .privacy-commitment-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .privacy-commitment h3 {
-            color: white;
-            font-size: 1.5rem;
+        .terms-content h1 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            font-weight: 600;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .privacy-commitment p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.125rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
-            font-weight: 600;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e0f2fe;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        h2::before {
+        .terms-content h2 {
+            color: var(--text-primary);
             font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
         }
 
-        h2:nth-of-type(1)::before { content: '📋'; }
-        h2:nth-of-type(2)::before { content: '📊'; }
-        h2:nth-of-type(3)::before { content: '🔍'; }
-        h2:nth-of-type(4)::before { content: '🔒'; }
-        h2:nth-of-type(5)::before { content: '⚙️'; }
-        h2:nth-of-type(6)::before { content: '💼'; }
-        h2:nth-of-type(7)::before { content: '⚠️'; }
-        h2:nth-of-type(8)::before { content: '🔄'; }
-        h2:nth-of-type(9)::before { content: '⚖️'; }
-
-        h3 {
-            color: var(--text-secondary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+        .terms-content h3 {
+            color: var(--text-primary);
             font-size: 1.25rem;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin: 2rem 0 0.75rem 0;
         }
 
-        h3::before {
-            content: '🔹';
-            font-size: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
+        .terms-content p {
             color: var(--text-secondary);
+            margin-bottom: 1rem;
             line-height: 1.7;
         }
 
-        ul, ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
+        .terms-content ul {
+            margin: 1rem 0 1rem 1.5rem;
             color: var(--text-secondary);
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
             line-height: 1.6;
-            position: relative;
-            padding-left: 0.5rem;
         }
 
-        li::marker {
-            color: var(--primary-color);
-        }
-
-        code {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary-color);
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .data-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .data-type-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .data-type-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            opacity: 0.05;
-            border-radius: 50%;
-            transform: translate(30px, -30px);
-        }
-
-        .data-type-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-            border-left-color: var(--accent-color);
-        }
-
-        .data-type-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, #fef7f7 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-box:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .highlight-box::before {
-            content: '❗';
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            opacity: 0.3;
-        }
-
-        .highlight-box h3 {
+        .terms-content strong {
             color: var(--text-primary);
-            margin-top: 0;
-            font-size: 1.25rem;
             font-weight: 600;
         }
 
-        .highlight-box ul {
-            margin: 1rem 0 0 0;
+        .version-info {
+            background: var(--bg-secondary);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
         }
 
-        .highlight-box li {
-            padding-left: 1rem;
-            position: relative;
+        .version-info p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
         }
 
-        .contact-info {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            padding: 3rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-            border: 1px solid #bae6fd;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .disclaimer-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .contact-info:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
+        .disclaimer-box h2 {
+            color: #92400e;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border: none;
+            padding: 0;
         }
 
-        .contact-info::before {
-            content: '📞';
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 3rem;
-            opacity: 0.1;
+        .disclaimer-box p,
+        .disclaimer-box strong {
+            color: #92400e;
         }
 
-        .contact-info h2 {
+        .contact-box {
+            background: var(--bg-secondary);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-box h2 {
             color: var(--primary-color);
             margin-top: 0;
-            border-bottom: none;
-            margin-bottom: 1.5rem;
+            border: none;
+            padding: 0;
         }
 
-        .contact-details {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin-top: 1.5rem;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .contact-details:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .contact-details p {
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-details p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Financial disclaimer */
-        .financial-disclaimer {
-            background: var(--gradient-warning);
-            color: white;
-            padding: 3rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            transition: all 0.3s ease;
-        }
-
-        .financial-disclaimer:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 35px -5px rgb(0 0 0 / 0.15), 0 10px 15px -8px rgb(0 0 0 / 0.1);
-        }
-
-        .financial-disclaimer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: scale(2) translate(50%, -50%);
-        }
-
-        .financial-disclaimer-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .financial-disclaimer h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .contact-link {
+            color: var(--primary-color);
+            text-decoration: none;
             font-weight: 600;
-            justify-content: center;
+            transition: color 0.3s ease;
         }
 
-        .financial-disclaimer p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.125rem;
-            margin: 0;
-            line-height: 1.6;
+        .contact-link:hover {
+            color: var(--primary-dark);
         }
 
         /* Footer */
@@ -627,7 +344,6 @@
         .footer-section h3 {
             margin-bottom: 1rem;
             font-weight: 600;
-            color: white;
         }
 
         .footer-section p,
@@ -635,7 +351,11 @@
             color: var(--text-muted);
             text-decoration: none;
             line-height: 1.8;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
         }
 
         .footer-logo {
@@ -649,15 +369,6 @@
             width: 32px;
             height: 32px;
             border-radius: 6px;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-logo span {
-            color: white;
-            font-weight: 600;
         }
 
         .footer-bottom {
@@ -675,98 +386,54 @@
             color: var(--text-muted);
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            text-decoration: none;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            font-size: 1.25rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .terms-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .terms-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .terms-content h2 {
+                font-size: 1.25rem;
+            }
+
+            .terms-content h3 {
+                font-size: 1.125rem;
+            }
         }
 
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
 
-        .back-to-top:hover {
-            background: var(--gradient-secondary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
+            .content-container {
+                padding: 0 16px;
+            }
+
+            .terms-content {
+                padding: 1.5rem 1rem;
+            }
         }
 
         /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-delay-1 { transition-delay: 0.1s; }
-        .stagger-delay-2 { transition-delay: 0.2s; }
-        .stagger-delay-3 { transition-delay: 0.3s; }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .content-wrapper {
-                padding: 2rem 1.5rem;
-            }
-
-            .data-types {
-                grid-template-columns: 1fr;
-            }
-
-            .back-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-            }
-
-            .effective-date,
-            .financial-disclaimer,
-            .contact-info {
-                padding: 2rem 1.5rem;
-            }
-
-            .close-button {
-                top: 90px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .close-button {
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -783,50 +450,53 @@
                 <ul class="nav-links">
                     <li><a href="index.html#features">Features</a></li>
                     <li><a href="index.html#functions">Functions</a></li>
-                    <li><a href="privacy-policy.html">Privacy</a></li>
-                    <li><a href="mailto:aabukhater@gmail.com">Support</a></li>
+                    <li><a href="index.html#how-it-works">How it Works</a></li>
+                    <li><a href="index.html#testimonials">Reviews</a></li>
                 </ul>
-                <a href="https://workspace.google.com/marketplace" class="nav-cta" target="_blank">
-                    Get Started Free
-                </a>
+                <div class="nav-actions">
+                    <a href="https://workspace.google.com/marketplace" class="nav-cta" target="_blank">
+                        Get Started Free
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <button class="close-button" onclick="closeDialog()" title="Close">&times;</button>
-
-    <!-- Header -->
-    <section class="header">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="header-content">
-                <h1>📋 Terms of Service</h1>
-                <p class="header-subtitle" style="color:white">Legal terms and conditions for using Dividend Analysis Toolkit</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Terms of Service</span>
             </div>
+            <h1 class="page-title">Terms of Service</h1>
+            <p class="page-subtitle">
+                Please read these terms carefully before using Dividend Toolkit
+            </p>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <div class="content-wrapper">
-                <div class="effective-date fade-in">
-                    <strong>Effective Date:</strong> July 30, 2025<br>
-                    <strong>Version:</strong> 1.1<br>
-                    <strong>Add-on:</strong> Dividend Analysis Toolkit
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="terms-content fade-in">
+                <div class="version-info">
+                    <p><strong>Effective Date:</strong> July 30, 2025</p>
+                    <p><strong>Version:</strong> 1.1</p>
+                    <p><strong>Add-on:</strong> Dividend Analysis Toolkit</p>
                 </div>
 
-                <div class="financial-disclaimer fade-in">
-                    <div class="financial-disclaimer-content">
-                        <h3>⚠️ Critical Financial Disclaimer</h3>
-                        <p>Not Investment Advice: Dividend Analysis Toolkit provides financial data for informational purposes only. The information is not intended as investment advice.</p>
-                        <p>Risk Warning: All investments involve risk. Past performance does not guarantee future results.</p>
-                        <p>Professional Consultation Required: Consult with a qualified financial advisor before making investment decisions.</p>
-                    </div>
+                <div class="disclaimer-box">
+                    <h2>Critical Financial Disclaimer</h2>
+                    <p><strong>Not Investment Advice:</strong> Dividend Analysis Toolkit provides financial data for informational purposes only. The information is not intended as investment advice.</p>
+                    <p><strong>Risk Warning:</strong> All investments involve risk. Past performance does not guarantee future results.</p>
+                    <p><strong>Professional Consultation Required:</strong> Consult with a qualified financial advisor before making investment decisions.</p>
                 </div>
 
-                <h2 class="fade-in">1. Service Description</h2>
-                <p class="fade-in">Dividend Analysis Toolkit is a Google Sheets add-on that provides comprehensive dividend analysis and stock data integration tools. The service includes:</p>
-                <ul class="fade-in">
+                <h2>1. Service Description</h2>
+                <p>Dividend Analysis Toolkit is a Google Sheets add-on that provides comprehensive dividend analysis and stock data integration tools. The service includes:</p>
+                <ul>
                     <li>Real-time and historical dividend data retrieval</li>
                     <li>Dividend yield calculations and analysis</li>
                     <li>Dividend frequency detection and payment schedules</li>
@@ -835,25 +505,25 @@
                     <li>Custom functions accessible through Google Sheets formulas</li>
                 </ul>
 
-                <h2 class="fade-in">2. Data Accuracy and Limitations</h2>
-
-                <h3 class="fade-in">2.1 Data Sources and Reliability</h3>
-                <p class="fade-in">The add-on retrieves financial data from third-party sources including Yahoo Finance. While we strive for accuracy, we cannot guarantee:</p>
-                <ul class="fade-in">
+                <h2>2. Data Accuracy and Limitations</h2>
+                
+                <h3>2.1 Data Sources and Reliability</h3>
+                <p>The add-on retrieves financial data from third-party sources including Yahoo Finance. While we strive for accuracy, we cannot guarantee:</p>
+                <ul>
                     <li>The accuracy, completeness, or timeliness of financial data</li>
                     <li>Real-time data availability (delays may occur)</li>
                     <li>Continuous data availability from third-party providers</li>
                     <li>Error-free calculations or analysis results</li>
                 </ul>
-                
-                <h3 class="fade-in">2.2 User Verification Responsibility</h3>
-                <p class="fade-in">You are responsible for independently verifying all financial data and analysis results before making any decisions.</p>
 
-                <h2 class="fade-in">3. User Obligations and Acceptable Use</h2>
+                <h3>2.2 User Verification Responsibility</h3>
+                <p>You are responsible for independently verifying all financial data and analysis results before making any decisions.</p>
 
-                <h3 class="fade-in">3.1 Acceptable Use</h3>
-                <p class="fade-in">You agree to use our add-on responsibly and lawfully:</p>
-                <ul class="fade-in">
+                <h2>3. User Obligations and Acceptable Use</h2>
+
+                <h3>3.1 Acceptable Use</h3>
+                <p>You agree to use our add-on responsibly and lawfully:</p>
+                <ul>
                     <li>Use only for legitimate business, educational, or personal purposes</li>
                     <li>Comply with all applicable laws and regulations</li>
                     <li>Respect intellectual property rights and data usage terms</li>
@@ -861,109 +531,107 @@
                     <li>Not redistribute or resell data obtained through the add-on</li>
                 </ul>
 
-                <h3 class="fade-in">3.2 Data Responsibility</h3>
-                <p class="fade-in">As the user, you are responsible for:</p>
-                <ul class="fade-in">
+                <h3>3.2 Data Responsibility</h3>
+                <p>As the user, you are responsible for:</p>
+                <ul>
                     <li>Ensuring you have the right to process any data you use</li>
                     <li>Maintaining appropriate backups of your spreadsheet data</li>
                     <li>Verifying the accuracy of results produced by our add-on</li>
                     <li>Complying with data protection laws</li>
                 </ul>
 
-                <h2 class="fade-in">4. Privacy and Data Handling</h2>
+                <h2>4. Privacy and Data Handling</h2>
 
-                <h3 class="fade-in">4.1 Data Collection</h3>
-                <p class="fade-in">Dividend Analysis Toolkit may collect and process:</p>
-                <ul class="fade-in">
+                <h3>4.1 Data Collection</h3>
+                <p>Dividend Analysis Toolkit may collect and process:</p>
+                <ul>
                     <li>Google account information necessary for add-on functionality</li>
                     <li>Spreadsheet data you choose to analyze</li>
                     <li>Usage statistics and error logs for service improvement</li>
                     <li>Stock symbols and queries you submit for data retrieval</li>
                 </ul>
-                
-                <h3 class="fade-in">4.2 Data Security and Retention</h3>
-                <p class="fade-in">We implement appropriate security measures to protect your data and limit data retention to what is necessary for service operation.</p>
 
-                <h2 class="fade-in">5. Service Availability and Performance</h2>
-                <p class="fade-in">We strive to provide reliable service, but cannot guarantee:</p>
-                <ul class="fade-in">
+                <h3>4.2 Data Security and Retention</h3>
+                <p>We implement appropriate security measures to protect your data and limit data retention to what is necessary for service operation.</p>
+
+                <h2>5. Service Availability and Performance</h2>
+                <p>We strive to provide reliable service, but cannot guarantee:</p>
+                <ul>
                     <li>100% uptime or uninterrupted access</li>
                     <li>Compatibility with all future Google Sheets updates</li>
                     <li>Availability during maintenance periods or third-party outages</li>
                     <li>Consistent performance in all usage scenarios</li>
                 </ul>
-                <p class="fade-in">We reserve the right to modify, suspend, or discontinue the add-on at any time with reasonable notice when possible.</p>
+                <p>We reserve the right to modify, suspend, or discontinue the add-on at any time with reasonable notice when possible.</p>
 
-                <h2 class="fade-in">6. Intellectual Property Rights</h2>
+                <h2>6. Intellectual Property Rights</h2>
 
-                <h3 class="fade-in">6.1 Our Rights</h3>
-                <p class="fade-in">The add-on, including its code, design, algorithms, and documentation, is our intellectual property.</p>
+                <h3>6.1 Our Rights</h3>
+                <p>The add-on, including its code, design, algorithms, and documentation, is our intellectual property.</p>
 
-                <h3 class="fade-in">6.2 Your Rights</h3>
-                <p class="fade-in">You retain full ownership of:</p>
-                <ul class="fade-in">
+                <h3>6.2 Your Rights</h3>
+                <p>You retain full ownership of:</p>
+                <ul>
                     <li>Your original spreadsheet data and content</li>
                     <li>Results and outputs generated using our add-on</li>
                     <li>Any original analysis or work you create</li>
                 </ul>
 
-                <h3 class="fade-in">6.3 Restrictions</h3>
-                <p class="fade-in">You may not copy, modify, distribute, reverse engineer, or create derivative works without explicit permission.</p>
+                <h3>6.3 Restrictions</h3>
+                <p>You may not copy, modify, distribute, reverse engineer, or create derivative works without explicit permission.</p>
 
-                <h2 class="fade-in">7. Disclaimers and Limitations of Liability</h2>
+                <h2>7. Disclaimers and Limitations of Liability</h2>
 
-                <h3 class="fade-in">7.1 Warranty Disclaimer</h3>
-                <p class="fade-in">Our add-on is provided "AS IS" without warranties of any kind, either express or implied.</p>
+                <h3>7.1 Warranty Disclaimer</h3>
+                <p>Our add-on is provided "AS IS" without warranties of any kind, either express or implied.</p>
 
-                <h3 class="fade-in">7.2 Limitation of Liability</h3>
-                <p class="fade-in">To the maximum extent permitted by law, we shall not be liable for:</p>
-                <ul class="fade-in">
+                <h3>7.2 Limitation of Liability</h3>
+                <p>To the maximum extent permitted by law, we shall not be liable for:</p>
+                <ul>
                     <li>Any direct, indirect, incidental, special, or consequential damages</li>
                     <li>Loss of profits, data, investments, or other financial losses</li>
                     <li>Damages resulting from your use or inability to use the add-on</li>
                     <li>Damages resulting from inaccurate data or analysis</li>
                 </ul>
 
-                <h2 class="fade-in">8. Indemnification</h2>
-                <p class="fade-in">You agree to indemnify and hold harmless the developers and operators from any claims, damages, losses, or expenses arising from your use of the add-on.</p>
+                <h2>8. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless the developers and operators from any claims, damages, losses, or expenses arising from your use of the add-on.</p>
 
-                <h2 class="fade-in">9. Account Termination</h2>
-                <p class="fade-in"><strong>Your Right to Terminate:</strong> You may stop using our add-on at any time by uninstalling it from your Google Sheets.</p>
-                <p class="fade-in"><strong>Our Right to Terminate:</strong> We reserve the right to terminate or suspend access for violations of these terms, illegal activity, or abuse of service.</p>
+                <h2>9. Account Termination</h2>
+                <p><strong>Your Right to Terminate:</strong> You may stop using our add-on at any time by uninstalling it from your Google Sheets.</p>
+                <p><strong>Our Right to Terminate:</strong> We reserve the right to terminate or suspend access for violations of these terms, illegal activity, or abuse of service.</p>
 
-                <h2 class="fade-in">10. Updates and Changes</h2>
+                <h2>10. Updates and Changes</h2>
 
-                <h3 class="fade-in">10.1 Service Updates</h3>
-                <p class="fade-in">We may update our add-on periodically to add features, fix bugs, or improve performance.</p>
+                <h3>10.1 Service Updates</h3>
+                <p>We may update our add-on periodically to add features, fix bugs, or improve performance.</p>
 
-                <h3 class="fade-in">10.2 Terms Updates</h3>
-                <p class="fade-in">We may modify these terms from time to time. Material changes will be communicated through the add-on interface.</p>
+                <h3>10.2 Terms Updates</h3>
+                <p>We may modify these terms from time to time. Material changes will be communicated through the add-on interface.</p>
 
-                <h2 class="fade-in">11. Legal Provisions</h2>
-                <p class="fade-in"><strong>Governing Law:</strong> These terms are governed by the laws of Texas, United States.</p>
-                <p class="fade-in"><strong>Jurisdiction:</strong> Any disputes shall be subject to the exclusive jurisdiction of the courts in Texas.</p>
-                <p class="fade-in"><strong>Severability:</strong> If any provision is unenforceable, the remaining provisions remain in full force.</p>
-                <p class="fade-in"><strong>Entire Agreement:</strong> These terms, with our Privacy Policy, constitute the entire agreement.</p>
+                <h2>11. Legal Provisions</h2>
+                <p><strong>Governing Law:</strong> These terms are governed by the laws of Texas, United States.</p>
+                <p><strong>Jurisdiction:</strong> Any disputes shall be subject to the exclusive jurisdiction of the courts in Texas.</p>
+                <p><strong>Severability:</strong> If any provision is unenforceable, the remaining provisions remain in full force.</p>
+                <p><strong>Entire Agreement:</strong> These terms, with our Privacy Policy, constitute the entire agreement.</p>
 
-                <div class="contact-info fade-in">
-                    <h2>📧 Contact Information</h2>
+                <div class="contact-box">
+                    <h2>Contact Information</h2>
                     <p>For questions about these terms, technical support, or our add-on:</p>
-                    
-                    <div class="contact-details">
-                        <p><strong>📧 Email/Support:</strong> aabukhater@gmail.com</p>
-                        <p><strong>⏰ Response Time:</strong> We strive to respond within 48 hours</p>
-                    </div>
-                    
+                    <p><strong>Email/Support:</strong> <a href="mailto:aabukhater@gmail.com" class="contact-link">aabukhater@gmail.com</a></p>
+                    <p><strong>Response Time:</strong> We strive to respond within 48 hours</p>
                     <p>We welcome feedback and questions about our terms and are committed to addressing any concerns promptly.</p>
                 </div>
 
-                <div style="border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 3rem; text-align: center; font-style: italic; color: var(--text-secondary); background: var(--bg-secondary); border-radius: 16px; padding: 2rem;" class="fade-in">                    
-                    <p style="margin-top: 1rem;"><em>Last updated: July 30, 2025 | Version: 1.1</em></p>
-                    <p><em>This add-on is independently developed and is not affiliated with Google LLC or Yahoo Finance.</em></p>
-                </div>
+                <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+                
+                <p style="font-style: italic; color: var(--text-muted); text-align: center;">
+                    Last updated: July 30, 2025 | Version: 1.1<br>
+                    This add-on is independently developed and is not affiliated with Google LLC or Yahoo Finance.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -974,7 +642,7 @@
                         <img src="https://pub-196acd5ed70542449a1b03484e319e40.r2.dev/logo.png" alt="Dividend Toolkit Logo">
                         <span>Dividend Toolkit</span>
                     </div>
-                    <p>Professional dividend analysis for Google Sheets. Empowering investors with real-time data and comprehensive analytics for smarter investment decisions.</p>
+                    <p>Professional dividend analysis for Google Sheets. Empowering investors with data and comprehensive analytics for smarter investment decisions.</p>
                 </div>
                 
                 <div class="footer-section">
@@ -987,16 +655,11 @@
                 
                 <div class="footer-section">
                     <h3>Support</h3>
+                    <p>Built with ❤️ for dividend investors</p>
                     <p><a href="mailto:aabukhater@gmail.com">Contact Support</a></p>
                     <p><a href="privacy-policy.html">Privacy Policy</a></p>
                     <p><a href="terms-of-service.html">Terms of Service</a></p>
                     <p><a href="index.html#testimonials">User Reviews</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Developer</h3>
-                    <p><a href="mailto:aabukhater@gmail.com">Get in Touch</a></p>
-                    <p>Built with ❤️ for dividend investors</p>
                 </div>
             </div>
             
@@ -1009,8 +672,6 @@
         </div>
     </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
@@ -1022,127 +683,38 @@
             }
         });
 
-        // Back to top functionality
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for any internal links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.data-type-card, .highlight-box, .contact-info, .financial-disclaimer').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
+        // Add fade-in animation to content
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
             });
         });
-
-        // Add ripple effect to buttons
-        document.querySelectorAll('.nav-cta, .back-to-top').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Close dialog function
-        function closeDialog() {
-            if (typeof google !== 'undefined' && google.script && google.script.host) {
-                google.script.host.close();
-            } else {
-                window.close();
-            }
-        }
-
-        // Add CSS for ripple effect
-        const rippleCSS = `
-            .nav-cta, .back-to-top {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-        
-        const style = document.createElement('style');
-        style.textContent = rippleCSS;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
